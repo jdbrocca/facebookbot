@@ -1,6 +1,6 @@
 {
-    "appSecret": "",
-    "pageAccessToken": "",
-    "validationToken": "",
-    "serverURL": ""
+    "appSecret": "d78b8d509b680d93564288e3caa0c31b",
+    "pageAccessToken": "EAAPuJabH68EBAH0Y3gtIvdoZAviOHh7uMLbZBOnCZC4vRQkjyViJdedQJdiOPExKl8Fw0mI9TRRZAvqVfcyruvzK70TOlDcH9kn6s5LJEECFhHhUSUiF1mgptr2EVfhZBwbX4AmF5Ut2Fmwd9PRokIzSEBBuhvQRkHZCoUicUHswZDZD",
+    "validationToken": "mi_secreto_token",
+    "serverURL": "https://facebookbot-perucom.herokuapp.com/"
 }
