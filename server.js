@@ -2,9 +2,9 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var app = express()
 
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
   res.send('Hello World')
-})
+})*/
 
 // parse application/json
 app.use(bodyParser.json())
@@ -21,6 +21,7 @@ app.use(bodyParser.json())
 });*/
 
 app.post('/webhook', function (req, res) {
+  console.log("Juan Diego")
   var data = req.body;
 
   // Make sure this is a page subscription
