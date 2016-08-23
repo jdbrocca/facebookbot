@@ -1,9 +1,13 @@
 var express = require('express')
+var bodyParser = require('body-parser')
 var app = express()
 
 app.get('/', function(req, res) {
   res.send('Hello World')
 })
+
+// parse application/json
+app.use(bodyParser.json())
 
 /*app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
