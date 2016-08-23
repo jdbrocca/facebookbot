@@ -158,6 +158,7 @@ function receivedDeliveryConfirmation(event) {
 }
 
 function sendGenericMessage(recipientId) {
+  console.log("AAAAAAAAA")
   var messageData = {
     recipient: {
       id: recipientId
