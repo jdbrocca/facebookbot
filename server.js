@@ -34,10 +34,11 @@ app.post('/webhook', function (req, res) {
     data.entry.forEach(function(pageEntry) {
       var pageID = pageEntry.id;
       var timeOfEvent = pageEntry.time;
+      
+      console.log(pageEntry.messaging)
 
       // Iterate over each messaging event
       pageEntry.messaging.forEach(function(messagingEvent) {
-        console.log("JD: " + messagingEvent)
         if (messagingEvent.optin) {
           receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
