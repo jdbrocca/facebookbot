@@ -140,6 +140,24 @@ function callSendAPI(messageData) {
   });  
 }
 
+function receivedDeliveryConfirmation(event) {
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var delivery = event.delivery;
+  var messageIDs = delivery.mids;
+  var watermark = delivery.watermark;
+  var sequenceNumber = delivery.seq;
+
+  if (messageIDs) {
+    messageIDs.forEach(function(messageID) {
+      console.log("Received delivery confirmation for message ID: %s", 
+        messageID);
+    });
+  }
+
+  console.log("All message before %d were delivered.", watermark);
+}
+
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
   console.log('Example app listening on port ' + process.env.PORT + '!')
 })
