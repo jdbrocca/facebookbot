@@ -22,7 +22,6 @@ app.use(bodyParser.json())
 });*/
 
 app.post('/webhook', function (req, res) {
-  console.log("Juan Diego")
   var data = req.body;
 
   // Make sure this is a page subscription
