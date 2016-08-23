@@ -1,13 +1,16 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var request = require('request')
-var app = express()
+var express = require('express'),
+    bodyParser = require('body-parser'),
+    request = require('request'),
+    app = express()
 
 /*app.get('/', function(req, res) {
   res.send('Hello World')
 })*/
 
-// parse application/json
+// Process application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: false}))
+
+// Process application/json
 app.use(bodyParser.json())
 
 /*app.get('/webhook', function(req, res) {
@@ -118,7 +121,7 @@ function sendTextMessage(recipientId, messageText) {
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: PAGE_ACCESS_TOKEN },
+    qs: { access_token: 'EAAPuJabH68EBAH0Y3gtIvdoZAviOHh7uMLbZBOnCZC4vRQkjyViJdedQJdiOPExKl8Fw0mI9TRRZAvqVfcyruvzK70TOlDcH9kn6s5LJEECFhHhUSUiF1mgptr2EVfhZBwbX4AmF5Ut2Fmwd9PRokIzSEBBuhvQRkHZCoUicUHswZDZD' },
     method: 'POST',
     json: messageData
 
