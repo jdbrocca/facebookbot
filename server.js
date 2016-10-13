@@ -77,7 +77,7 @@ app.get('/webhook', function(req, res) {
 // Set FB bot greeting text
 facebookThreadAPI('./json/fb-texto-saludo.json', 'Texto de Saludo');
 // Set FB bot get started button
-//facebookThreadAPI('./fb-get-started-button.json', 'Get Started Button');
+facebookThreadAPI('./json/fb-boton-comenzar.json', 'Botón Comenzar');
 // Set FB bot persistent menu
 //facebookThreadAPI('./fb-persistent-menu.json', 'Persistent Menu');
 
