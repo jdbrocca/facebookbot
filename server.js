@@ -41,9 +41,10 @@ const VALIDATION_TOKEN = (process.env.MESSENGER_VALIDATION_TOKEN) ?
   config.get('validationToken');
 
 // Generate a page access token for your page from the App Dashboard
-const PAGE_ACCESS_TOKEN = (process.env.MESSENGER_PAGE_ACCESS_TOKEN) ?
+/*const PAGE_ACCESS_TOKEN = (process.env.MESSENGER_PAGE_ACCESS_TOKEN) ?
   (process.env.MESSENGER_PAGE_ACCESS_TOKEN) :
-  config.get('pageAccessToken');
+  config.get('pageAccessToken');*/
+const PAGE_ACCESS_TOKEN = 'EAAPuJabH68EBAFAYEw27GUA6s9nWvGR5mv6KfIrCDKlnFi5LJFPW364MlZBhZC58igaFXXXntZCxCK9iCxlDRTZBkZADJmoeXgCj1b9iZCfZCTd80a9GfCxTMUUVs2IvqlPJHp3Y7pVWIRVgDZBTQmv5VPxVBZCmlfERnOZApLnrWRAAZDZD'
 
 // URL where the app is running (include protocol). Used to point to scripts and 
 // assets located at this address. 
@@ -66,8 +67,6 @@ app.get('/webhook', function(req, res) {
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
-    
-    textoDeSaludo()
   } else {
     console.error("Failed validation. Make sure the validation tokens match.");
     res.sendStatus(403);          
