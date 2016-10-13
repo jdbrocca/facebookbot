@@ -3,7 +3,14 @@
     "thread_state":"new_thread",
     "call_to_actions":[
         {
-            "payload": {
+          "sender":{
+            "id":"USER_ID"
+          },
+          "recipient":{
+            "id":"PAGE_ID"
+          },
+          "timestamp":1458692752478,
+          "payload": {
                 "type": "poll",
                 "question": "Do you like ice-cream?"
             }
