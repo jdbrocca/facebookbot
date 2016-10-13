@@ -1,0 +1,6 @@
+{
+    "setting_type": "greeting",
+    "greeting": {
+        "text":"Bienvenido a mi ejemplo de FacebookBot. Creado por @JuanDiegoBS"
+    }
+}

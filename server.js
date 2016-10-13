@@ -74,36 +74,36 @@ app.get('/webhook', function(req, res) {
 });
 
 
-textoDeSaludo()
+// Set FB bot greeting text
+facebookThreadAPI('./json/fb-texto-saludo.json', 'Texto de Saludo');
+// Set FB bot get started button
+//facebookThreadAPI('./fb-get-started-button.json', 'Get Started Button');
+// Set FB bot persistent menu
+//facebookThreadAPI('./fb-persistent-menu.json', 'Persistent Menu');
 
-function textoDeSaludo() {
-  request({
-    uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
-    qs: { access_token: PAGE_ACCESS_TOKEN },
-    method: 'POST',
-    json: {
-      "setting_type":"greeting",
-      "greeting": {
-        "text":"Bienvenido a mi ejemplo de Facebook Bot v2"
-      }
-    }
 
-  }, function (error, response, body) {
-    if (!error && response.statusCode == 200) {
-      var recipientId = body.recipient_id;
-      var messageId = body.message_id;
-
-      if (messageId) {
-        console.log("Successfully sent message with id %s to recipient %s", 
-          messageId, recipientId);
-      } else {
-      console.log("Successfully called Send API for recipient %s", 
-        recipientId);
-      }
-    } else {
-      console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
-    }
-  });  
+// Calls the Facebook graph api to change various bot settings
+function facebookThreadAPI(jsonFile, cmd){
+    // Start the request
+    request({
+      uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
+      qs: { access_token: PAGE_ACCESS_TOKEN },
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      form: require(jsonFile)
+  
+    },
+    function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            // Print out the response body
+            console.log(cmd+": Updated.");
+            console.log(body);
+        } else { 
+            // TODO: Handle errors
+            console.log(cmd+": Failed. Need to handle errors.");
+            console.log(body);
+        }
+    });
 }
 
 
