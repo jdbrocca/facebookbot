@@ -308,7 +308,7 @@ function receivedMessage(event) {
         break;
 
       default:
-        sendTextMessage(senderID, 'Hola juan diego: ' + messageText);
+        sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -524,7 +524,7 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: messageText,
+      text: PAGE_ACCESS_TOKEN + ' /// ' + messageText,
       metadata: "DEVELOPER_DEFINED_METADATA"
     }
   };
