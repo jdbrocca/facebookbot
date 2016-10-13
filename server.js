@@ -74,12 +74,12 @@ app.get('/webhook', function(req, res) {
 });
 
 
-// Set FB bot greeting text
+// FB bot Texto de saludo
 facebookThreadAPI('./json/fb-texto-saludo.json', 'Texto de Saludo');
-// Set FB bot get started button
+// FB bot get Botón "Comenzar"
 facebookThreadAPI('./json/fb-boton-comenzar.json', 'Botón Comenzar');
-// Set FB bot persistent menu
-//facebookThreadAPI('./fb-persistent-menu.json', 'Persistent Menu');
+// FB Bot Menu Fijo
+facebookThreadAPI('./json/fb-menu-fijo.json', 'Persistent Menu');
 
 
 // Calls the Facebook graph api to change various bot settings
@@ -426,11 +426,11 @@ function comenzarConversacion(recipientId){
           text: "¡Hola! ¿Qué tal estás? Soy un bot que envía alertas informativas y noticias de ExampleBot en el momento de su publicación. Para iniciar la conversación pulsa los siguientes botones:",
           buttons:[{
             type: "web_url",
-            url: "https://peru.com/",
+            url: "http://peru.com/",
             title: "Ir a la web"
           }, {
             type: "postback",
-            title: "Temas del días",
+            title: "Temas del día",
             payload: "DEVELOPED_DEFINED_PAYLOAD"
           }]
         }
