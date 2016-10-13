@@ -524,7 +524,7 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     message: {
-      text: PAGE_ACCESS_TOKEN + ' /// ' + messageText,
+      text: messageText,
       metadata: "DEVELOPER_DEFINED_METADATA"
     }
   };
