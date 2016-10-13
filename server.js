@@ -66,11 +66,44 @@ app.get('/webhook', function(req, res) {
       req.query['hub.verify_token'] === VALIDATION_TOKEN) {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
+    
+    textoDeSaludo()
   } else {
     console.error("Failed validation. Make sure the validation tokens match.");
     res.sendStatus(403);          
   }  
 });
+
+
+function textoDeSaludo() {
+  request({
+    uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
+    qs: { access_token: PAGE_ACCESS_TOKEN },
+    method: 'POST',
+    json: {
+      "setting_type":"greeting",
+      "greeting": {
+        "text":"Bienvenido a mi ejemplo de Facebook Bot"
+      }
+    }
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var recipientId = body.recipient_id;
+      var messageId = body.message_id;
+
+      if (messageId) {
+        console.log("Successfully sent message with id %s to recipient %s", 
+          messageId, recipientId);
+      } else {
+      console.log("Successfully called Send API for recipient %s", 
+        recipientId);
+      }
+    } else {
+      console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+    }
+  });  
+}
 
 
 /*
