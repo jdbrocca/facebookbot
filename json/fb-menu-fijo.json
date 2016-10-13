@@ -5,12 +5,12 @@
         {
             "type": "postback",
             "title": "📰 Destacadas del día",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
+            "payload": "PAYLOAD_DESTACADAS"
         },
         {
             "type": "postback",
             "title": "⚽ Noticias de Fútbol",
-            "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
+            "payload": "PAYLOAD_FUTBOL"
         },
         {
             "type": "web_url",

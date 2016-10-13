@@ -406,6 +406,12 @@ function receivedPostback(event) {
       case 'USER_DEFINED_PAYLOAD':
         comenzarConversacion(senderID);
         break;
+      case 'PAYLOAD_DESTACADAS':
+        sendTextMessage(senderID, "Tus destacadas del día.");
+        break;
+      case 'PAYLOAD_FUTBOL':
+        sendTextMessage(senderID, "Noticias de Fútbol");
+        break;
       default:
         sendTextMessage(senderID, "Postback called");
     }
