@@ -4,12 +4,12 @@
     "call_to_actions": [
         {
             "type": "postback",
-            "title": "📑 Destacadas del día",
+            "title": "📰 Destacadas del día",
             "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_HELP"
         },
         {
             "type": "postback",
-            "title": "🎬 Noticias de Actualidad",
+            "title": "⚽ Noticias de Fútbol",
             "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_START_ORDER"
         },
         {
