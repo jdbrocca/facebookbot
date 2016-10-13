@@ -79,7 +79,7 @@ facebookThreadAPI('./json/fb-texto-saludo.json', 'Texto de Saludo');
 // FB bot get Botón "Comenzar"
 facebookThreadAPI('./json/fb-boton-comenzar.json', 'Botón Comenzar');
 // FB Bot Menu Fijo
-facebookThreadAPI('./json/fb-menu-fijo.json', 'Persistent Menu');
+facebookThreadAPI('./json/fb-menu-fijo.json', 'Menu Fijo');
 
 
 // Calls the Facebook graph api to change various bot settings
