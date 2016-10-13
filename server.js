@@ -397,7 +397,48 @@ function receivedPostback(event) {
 
   // When a postback is called, we'll send a message back to the sender to 
   // let them know it was successful
-  sendTextMessage(senderID, "Postback called");
+  //sendTextMessage(senderID, "Postback called");
+  
+  if (payload) {
+    // When a postback is called, we'll send a message back to the sender to 
+    // let them know it was successful
+    switch (payload) {
+      case 'USER_DEFINED_PAYLOAD':
+        comenzarConversacion(senderID);
+        break;
+      default:
+        sendTextMessage(senderID, "Postback called");
+    }
+  }
+}
+
+
+function comenzarConversacion(recipientId){
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "¡Hola! ¿Qué tal estás? Soy un bot que envía alertas informativas y noticias de ExampleBot en el momento de su publicación. Para iniciar la conversación pulsa los siguientes botones:",
+          buttons:[{
+            type: "web_url",
+            url: "https://peru.com/",
+            title: "Ir a la web"
+          }, {
+            type: "postback",
+            title: "Temas del días",
+            payload: "DEVELOPED_DEFINED_PAYLOAD"
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
 }
 
 /*
