@@ -74,6 +74,8 @@ app.get('/webhook', function(req, res) {
 });
 
 
+textoDeSaludo()
+
 function textoDeSaludo() {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/thread_settings',
@@ -82,7 +84,7 @@ function textoDeSaludo() {
     json: {
       "setting_type":"greeting",
       "greeting": {
-        "text":"Bienvenido a mi ejemplo de Facebook Bot"
+        "text":"Bienvenido a mi ejemplo de Facebook Bot v2"
       }
     }
 
