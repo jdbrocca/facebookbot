@@ -15,5 +15,8 @@
     "https": "^1.0.0",
     "request": "^2.74.0",
     "socket.io": "~0.9.14"
+  },
+  "devDependencies": {
+    "config": "^1.21.0"
   }
 }
