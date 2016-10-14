@@ -367,7 +367,7 @@ function receivedPostback(event) {
     var timeOfPostback = event.timestamp;
     
     console.log("***************")
-    console.log(userData.first_name)
+    console.log(userData.last_name)
     console.log("***************")
     
     // The 'payload' param is a developer-defined field which is set in a postback 
