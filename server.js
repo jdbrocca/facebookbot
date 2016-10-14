@@ -67,6 +67,7 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
  *
  */
 app.get('/webhook', function(req, res) {
+    console.log("AAA")
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {
         console.log("Validating webhook");
@@ -119,6 +120,7 @@ function facebookThreadAPI(jsonFile, cmd) {
  *
  */
 app.post('/webhook', function(req, res) {
+    console.log("BBB")
     var data = req.body;
     
     // Make sure this is a page subscription
@@ -249,8 +251,6 @@ function receivedMessage(event) {
     var recipientID = event.recipient.id;
     var timeOfMessage = event.timestamp;
     var message = event.message;
-    
-    obtenerDatosUsuario(senderID)
     
     console.log("Received message for user %d and page %d at %d with message:",
         senderID, recipientID, timeOfMessage);
@@ -870,11 +870,14 @@ function obtenerDatosUsuario(userId) {
         qs: {
             access_token: PAGE_ACCESS_TOKEN
         },
-        method: 'GET'
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             // Print out the response body
-            userData = JSON.parse(body);
+            userData = body;
             console.log(body);
         } else {
             // TODO: Handle errors
