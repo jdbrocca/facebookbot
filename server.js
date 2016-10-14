@@ -383,7 +383,7 @@ function receivedPostback(event) {
                 obtenerDatosUsuario(senderID);
                 break;
             case 'PAYLOAD_DESTACADAS':
-                sendTextMessage(senderID, "Tus destacadas del día.");
+                sendTextMessage(senderID, "Hola " + userData.last_name + ": Tus destacadas del día.");
                 break;
             case 'PAYLOAD_FUTBOL':
                 sendTextMessage(senderID, "Hola " + userData.first_name + ", aquí tus noticias sobre fútbol");
