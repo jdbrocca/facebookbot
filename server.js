@@ -120,6 +120,9 @@ function facebookThreadAPI(jsonFile, cmd) {
  */
 app.post('/webhook', function(req, res) {
     var data = req.body;
+    console.log('****************')
+    console.log(data)
+    console.log('****************')
     // Make sure this is a page subscription
     if (data.object == 'page') {
         // Iterate over each entry
@@ -214,8 +217,6 @@ function receivedAuthentication(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfAuth = event.timestamp;
-    
-    obtenerDatosUsuario(senderID)
     
     // The 'ref' field is set in the 'Send to Messenger' plugin, in the 'data-ref'
     // The developer can set this to an arbitrary value to associate the 
