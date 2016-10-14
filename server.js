@@ -67,7 +67,6 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
  *
  */
 app.get('/webhook', function(req, res) {
-    console.log("AAA")
     if (req.query['hub.mode'] === 'subscribe' &&
         req.query['hub.verify_token'] === VALIDATION_TOKEN) {
         console.log("Validating webhook");
@@ -81,7 +80,7 @@ app.get('/webhook', function(req, res) {
 // FB bot Texto de saludo
 facebookThreadAPI('./json/fb-texto-saludo.json', 'Texto de Saludo');
 // FB bot get BotÃ³n "Comenzar"
-facebookThreadAPI('./json/fb-boton-comenzar.json', 'BotÃ³n Comenzar');
+facebookThreadAPI('./json/fb-boton-comenzar.json', 'Botón Comenzar');
 // FB Bot Menu Fijo
 facebookThreadAPI('./json/fb-menu-fijo.json', 'Menu Fijo');
 
@@ -120,7 +119,6 @@ function facebookThreadAPI(jsonFile, cmd) {
  *
  */
 app.post('/webhook', function(req, res) {
-    console.log("BBB")
     var data = req.body;
     
     // Make sure this is a page subscription
@@ -369,7 +367,7 @@ function receivedPostback(event) {
     var timeOfPostback = event.timestamp;
     
     console.log("***************")
-    console.log(userData.first_name)
+    console.log(userData)
     console.log("***************")
     
     // The 'payload' param is a developer-defined field which is set in a postback 
@@ -386,6 +384,7 @@ function receivedPostback(event) {
         switch (payload) {
             case 'USER_DEFINED_PAYLOAD':
                 comenzarConversacion(senderID);
+                obtenerDatosUsuario(senderID);
                 break;
             case 'PAYLOAD_DESTACADAS':
                 sendTextMessage(senderID, "Tus destacadas del día.");
@@ -870,14 +869,11 @@ function obtenerDatosUsuario(userId) {
         qs: {
             access_token: PAGE_ACCESS_TOKEN
         },
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        method: 'GET'
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             // Print out the response body
-            userData = body;
+            userData = JSON.parse(body);
             console.log(body);
         } else {
             // TODO: Handle errors
