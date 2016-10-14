@@ -26,6 +26,8 @@ app.use(bodyParser.json({
 }));
 app.use(express.static('public'));
 
+var userData;
+
 /*
  * Be sure to setup your config values before running this code. You can 
  * set them using environment variables or modifying the config file in /config.
@@ -362,9 +364,9 @@ function receivedPostback(event) {
     var recipientID = event.recipient.id;
     var timeOfPostback = event.timestamp;
     
-    var dataUser = obtenerDatosUsuario(senderID)
+    obtenerDatosUsuario(senderID)
     console.log("-----------------------------------------------------------------")
-    console.log(dataUser)
+    console.log(userData)
     
     // The 'payload' param is a developer-defined field which is set in a postback 
     // button for Structured Messages.
@@ -871,8 +873,8 @@ function obtenerDatosUsuario(userId) {
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             // Print out the response body
+            userData = body;
             console.log(body);
-            return body;
         } else {
             // TODO: Handle errors
             console.log(body);
