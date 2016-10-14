@@ -250,6 +250,8 @@ function receivedMessage(event) {
     var timeOfMessage = event.timestamp;
     var message = event.message;
     
+    obtenerDatosUsuario(senderID);
+    
     console.log("Received message for user %d and page %d at %d with message:",
         senderID, recipientID, timeOfMessage);
     console.log(JSON.stringify(message));
@@ -380,7 +382,6 @@ function receivedPostback(event) {
         switch (payload) {
             case 'USER_DEFINED_PAYLOAD':
                 comenzarConversacion(senderID);
-                obtenerDatosUsuario(senderID);
                 break;
             case 'PAYLOAD_DESTACADAS':
                 sendTextMessage(senderID, "Hola " + userData.last_name + ": Tus destacadas del día.");
