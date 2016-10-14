@@ -367,7 +367,7 @@ function receivedPostback(event) {
     var timeOfPostback = event.timestamp;
     
     console.log("***************")
-    console.log(userData)
+    console.log(userData.first_name)
     console.log("***************")
     
     // The 'payload' param is a developer-defined field which is set in a postback 
@@ -408,14 +408,14 @@ function comenzarConversacion(recipientId) {
                 type: "template",
                 payload: {
                     template_type: "button",
-                    text: "Â¡Hola! Â¿QuÃ© tal estÃ¡s? Soy un bot que envÃ­a alertas informativas y noticias de ExampleBot en el momento de su publicaciÃ³n. Para iniciar la conversaciÃ³n pulsa los siguientes botones:",
+                    text: "¡Hola! ¿Qué tal estás? Soy un bot que envía alertas informativas y noticias de ExampleBot en el momento de su publicación. Para iniciar la conversación pulsa los siguientes botones:",
                     buttons: [{
                         type: "web_url",
                         url: "http://peru.com/",
                         title: "Ir a la web"
                     }, {
                         type: "postback",
-                        title: "Temas del dÃ­a",
+                        title: "Temas del día",
                         payload: "DEVELOPED_DEFINED_PAYLOAD"
                     }]
                 }
