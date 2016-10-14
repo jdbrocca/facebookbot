@@ -369,7 +369,7 @@ function receivedPostback(event) {
     var timeOfPostback = event.timestamp;
     
     console.log("***************")
-    console.log(userData)
+    console.log(userData.first_name)
     console.log("***************")
     
     // The 'payload' param is a developer-defined field which is set in a postback 
@@ -388,7 +388,7 @@ function receivedPostback(event) {
                 comenzarConversacion(senderID);
                 break;
             case 'PAYLOAD_DESTACADAS':
-                sendTextMessage(senderID, "Tus destacadas del dÃ­a.");
+                sendTextMessage(senderID, "Tus destacadas del día.");
                 break;
             case 'PAYLOAD_FUTBOL':
                 sendTextMessage(senderID, "Hola " + userData.first_name + ", aquí tus noticias sobre fútbol");
