@@ -216,6 +216,8 @@ function receivedAuthentication(event) {
     var recipientID = event.recipient.id;
     var timeOfAuth = event.timestamp;
     
+    obtenerDatosUsuario(senderID);
+    
     // The 'ref' field is set in the 'Send to Messenger' plugin, in the 'data-ref'
     // The developer can set this to an arbitrary value to associate the 
     // authentication callback with the 'Send to Messenger' click event. This is
@@ -347,6 +349,9 @@ function receivedDeliveryConfirmation(event) {
     var messageIDs = delivery.mids;
     var watermark = delivery.watermark;
     var sequenceNumber = delivery.seq;
+    
+    obtenerDatosUsuario(senderID);
+    
     if (messageIDs) {
         messageIDs.forEach(function(messageID) {
             console.log("Received delivery confirmation for message ID: %s",
@@ -367,6 +372,8 @@ function receivedPostback(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfPostback = event.timestamp;
+    
+    obtenerDatosUsuario(senderID);
     
     // The 'payload' param is a developer-defined field which is set in a postback 
     // button for Structured Messages.
