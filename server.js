@@ -214,6 +214,9 @@ function receivedAuthentication(event) {
     var senderID = event.sender.id;
     var recipientID = event.recipient.id;
     var timeOfAuth = event.timestamp;
+    
+    obtenerDatosUsuario(senderID)
+    
     // The 'ref' field is set in the 'Send to Messenger' plugin, in the 'data-ref'
     // The developer can set this to an arbitrary value to associate the 
     // authentication callback with the 'Send to Messenger' click event. This is
@@ -364,10 +367,6 @@ function receivedPostback(event) {
     var recipientID = event.recipient.id;
     var timeOfPostback = event.timestamp;
     
-    obtenerDatosUsuario(senderID)
-    console.log("-----------------------------------------------------------------")
-    console.log(userData)
-    
     // The 'payload' param is a developer-defined field which is set in a postback 
     // button for Structured Messages.
     var payload = event.postback.payload;
@@ -387,7 +386,7 @@ function receivedPostback(event) {
                 sendTextMessage(senderID, "Tus destacadas del dÃ­a.");
                 break;
             case 'PAYLOAD_FUTBOL':
-                sendTextMessage(senderID, "Hola " + dataUser.first_name + ", aquí tus noticias sobre fútbol");
+                sendTextMessage(senderID, "Hola " + userData.first_name + ", aquí tus noticias sobre fútbol");
                 break;
             default:
                 sendTextMessage(senderID, "Postback called");
