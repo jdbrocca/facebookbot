@@ -870,14 +870,11 @@ function obtenerDatosUsuario(userId) {
         qs: {
             access_token: PAGE_ACCESS_TOKEN
         },
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        method: 'GET'
     }, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             // Print out the response body
-            userData = body;
+            userData = JSON.parse(body);
             console.log(body);
         } else {
             // TODO: Handle errors
