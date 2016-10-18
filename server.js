@@ -21,7 +21,7 @@ const
 
 var CronJob = require('cron').CronJob;
 var timeZone = 'America/Lima';
-var job = new CronJob('00 53 11 * * *', function() {
+var job = new CronJob('00 56 12 * * *', function() {
         /*
         * Runs every weekday (Monday through Friday)
         * at 11:30:00 AM. It does not run on Saturday
@@ -34,14 +34,6 @@ var job = new CronJob('00 53 11 * * *', function() {
     true,
     timeZone
 );
-
-
-var schedule = require('node-schedule');
- 
-var j = schedule.scheduleJob('00 49 * * * *', function() {
-    sendTextMessage(1181494861924828, 'Hola JD, que tal?');
-});
-
 
 
 var app = express();
