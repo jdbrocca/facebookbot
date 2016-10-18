@@ -19,7 +19,8 @@ const
     request = require('request');
 
 var CronJob = require('cron').CronJob;
-var job = new CronJob('00 30 11 * * *', function() {
+var timeZone = 'UTC-05:00';
+var job = new CronJob('00 32 11 * * *', function() {
         /*
         * Runs every weekday (Monday through Friday)
         * at 11:30:00 AM. It does not run on Saturday
@@ -29,7 +30,8 @@ var job = new CronJob('00 30 11 * * *', function() {
     }, function () {
         /* This function is executed when the job stops */
     },
-    true /* Start the job right now */
+    true, /* Start the job right now */
+    timeZone
 );
 
 var app = express();
