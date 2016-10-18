@@ -137,7 +137,6 @@ function facebookThreadAPI(jsonFile, cmd) {
  */
 app.post('/webhook', function(req, res) {
     var data = req.body;
-    console.log(req.body.entry[0].messaging)
     
     // Make sure this is a page subscription
     if (data.object == 'page') {
@@ -146,6 +145,11 @@ app.post('/webhook', function(req, res) {
         data.entry.forEach(function(pageEntry) {
             var pageID = pageEntry.id;
             var timeOfEvent = pageEntry.time;
+            
+            console.log("----------------")
+            console.log(pageEntry.messaging)
+            console.log("----------------")
+            
             // Iterate over each messaging event
             pageEntry.messaging.forEach(function(messagingEvent) {
                 if (messagingEvent.optin) {
@@ -269,10 +273,7 @@ function receivedMessage(event) {
     var recipientID = event.recipient.id;
     var timeOfMessage = event.timestamp;
     var message = event.message;
-    
-    console.log("senderID: " + senderID)
-    console.log("recipientID: " + recipientID)
-    
+
     obtenerDatosUsuario(senderID);
     
     console.log("Received message for user %d and page %d at %d with message:",
