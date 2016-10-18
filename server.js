@@ -20,13 +20,13 @@ const
 
 var CronJob = require('cron').CronJob;
 var timeZone = 'America/Lima';
-var job = new CronJob('00 09 15 * * *', function() {
+var job = new CronJob('00 13 15 * * *', function() {
         /*
         * Runs every weekday (Monday through Friday)
         * at 11:30:00 AM. It does not run on Saturday
         * or Sunday.
         */
-        sendTextMessage(1277857285582057, 'Hola JD v3');
+        sendTextMessage(1181494861924828, 'Hola JD v2');
     }, function () {
         /* This function is executed when the job stops */
     },
