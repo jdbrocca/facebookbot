@@ -18,9 +18,7 @@ const
     https = require('https'),
     request = require('request');
 
-
-var getTimezone = require('node-timezone').getTimezone
-console.log(getTimezone())
+console.log("TimeZone: " + Intl.DateTimeFormat().resolvedOptions().timeZone)
 
 var CronJob = require('cron').CronJob;
 //var timeZone = 'America/Lima';
