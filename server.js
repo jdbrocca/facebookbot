@@ -35,8 +35,7 @@ var job = new CronJob('00 59 12 * * *', function() {
     }, function () {
         /* This function is executed when the job stops */
     },
-    true,
-    timeZone
+    true
 );
 
 
