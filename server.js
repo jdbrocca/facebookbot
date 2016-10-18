@@ -296,7 +296,20 @@ function receivedMessage(event) {
         console.log("Quick reply for message %s with payload %s",
             messageId, quickReplyPayload);
             
-        sendTextMessage(senderID, "Quick reply tapped");
+        if (quickReplyPayload) {
+            // When a postback is called, we'll send a message back to the sender to 
+            // let them know it was successful
+            switch (quickReplyPayload) {
+                case 'PAYLOAD_SUBSCRIPCION_SI':
+                    sendTextMessage(senderID, "Gracias " + (userData !== undefined ? userData.first_name : '') + " por suscribirte, te enviaremos las noticias más resaltantes del día.");
+                    break;
+                case 'PAYLOAD_SUBSCRIPCION_NO':
+                    sendTextMessage(senderID, "Saludos " + (userData !== undefined ? userData.first_name : '') + " no hay problema, puedes suscribirte cuando quieras.");
+                    break;
+                default:
+                    sendTextMessage(senderID, "Quick reply tapped");
+            }
+        }
         return;
     }
     
