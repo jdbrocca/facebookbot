@@ -14,10 +14,9 @@
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "https": "^1.0.0",
-    "node-schedule": "^1.1.1",
-    "node-timezone": "0.0.3",
     "request": "^2.74.0",
-    "socket.io": "~0.9.14"
+    "socket.io": "~0.9.14",
+    "time": "^0.11.4"
   },
   "devDependencies": {
     "config": "^1.21.0"

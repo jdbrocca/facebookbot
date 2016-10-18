@@ -18,12 +18,15 @@ const
     https = require('https'),
     request = require('request');
 
-console.log("TimeZone: " + Intl.DateTimeFormat().resolvedOptions().timeZone)
+//console.log("TimeZone: " + Intl.DateTimeFormat().resolvedOptions().timeZone)
+
+var time = require('time');
+var now = new time.Date();
+now.setTimezone("America/Lima");
 
 var CronJob = require('cron').CronJob;
-//var timeZone = 'America/Lima';
 var timeZone = 'ACT';
-var job = new CronJob('00 59 12 * * *', function() {
+var job = new CronJob('00 51 14 * * *', function() {
         /*
         * Runs every weekday (Monday through Friday)
         * at 11:30:00 AM. It does not run on Saturday
