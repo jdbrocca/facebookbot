@@ -328,7 +328,7 @@ function receivedMessage(event) {
                 sendAccountLinking(senderID);
                 break;
             default:
-                sendTextMessage(senderID, messageText);
+                sendTextMessage(senderID, messageText + " / " + senderID);
         }
     } else if (messageAttachments) {
         sendTextMessage(senderID, "Message with attachment received");
