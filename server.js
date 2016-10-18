@@ -25,8 +25,8 @@ var now = new time.Date();
 now.setTimezone("America/Lima");
 
 var CronJob = require('cron').CronJob;
-var timeZone = 'ACT';
-var job = new CronJob('00 51 14 * * *', function() {
+var timeZone = 'America/Lima';
+var job = new CronJob('30 52 14 * * *', function() {
         /*
         * Runs every weekday (Monday through Friday)
         * at 11:30:00 AM. It does not run on Saturday
@@ -36,7 +36,8 @@ var job = new CronJob('00 51 14 * * *', function() {
     }, function () {
         /* This function is executed when the job stops */
     },
-    true
+    true,
+    timeZone
 );
 
 
