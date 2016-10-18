@@ -24,6 +24,8 @@ var time = require('time');
 var now = new time.Date();
 now.setTimezone("America/Lima");
 
+console.log(now.getTimezone())
+
 var CronJob = require('cron').CronJob;
 var timeZone = 'America/Lima';
 var job = new CronJob('30 52 14 * * *', function() {
