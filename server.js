@@ -18,6 +18,7 @@ const
     https = require('https'),
     request = require('request');
 
+
 var CronJob = require('cron').CronJob;
 var timeZone = 'America/Lima';
 var job = new CronJob('00 53 11 * * *', function() {
@@ -33,6 +34,15 @@ var job = new CronJob('00 53 11 * * *', function() {
     true,
     timeZone
 );
+
+
+var schedule = require('node-schedule');
+ 
+var j = schedule.scheduleJob('00 45 12 * * *', function(){
+    sendTextMessage(1181494861924828, 'Hola JD, que tal?');
+});
+
+
 
 var app = express();
 app.set('port', process.env.PORT || 5000);
