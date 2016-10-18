@@ -143,6 +143,7 @@ app.post('/webhook', function(req, res) {
         // Iterate over each entry
         // There may be multiple if batched
         data.entry.forEach(function(pageEntry) {
+            
             var pageID = pageEntry.id;
             console.log("********* " + pageID + " **********")
             var timeOfEvent = pageEntry.time;
