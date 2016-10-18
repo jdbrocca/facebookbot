@@ -137,7 +137,7 @@ function facebookThreadAPI(jsonFile, cmd) {
  */
 app.post('/webhook', function(req, res) {
     console.log("***************")
-    console.log(req)
+    console.log(req.body)
     console.log("***************")
     var data = req.body;
     
