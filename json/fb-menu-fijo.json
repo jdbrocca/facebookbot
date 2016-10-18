@@ -13,6 +13,11 @@
             "payload": "PAYLOAD_FUTBOL"
         },
         {
+            "type": "postback",
+            "title": "📝 ¿A qué estoy suscrito?",
+            "payload": "PAYLOAD_SUBSCRIPCION"
+        },
+        {
             "type": "web_url",
             "title": "🏠 Ir a Peru.com",
             "url": "http://peru.com"

@@ -146,10 +146,6 @@ app.post('/webhook', function(req, res) {
             var pageID = pageEntry.id;
             var timeOfEvent = pageEntry.time;
             
-            console.log("----------------")
-            console.log(pageEntry.messaging)
-            console.log("----------------")
-            
             // Iterate over each messaging event
             pageEntry.messaging.forEach(function(messagingEvent) {
                 if (messagingEvent.optin) {
@@ -419,10 +415,43 @@ function receivedPostback(event) {
             case 'PAYLOAD_FUTBOL':
                 sendTextMessage(senderID, "Hola " + (userData !== undefined ? userData.first_name : '') + ", aquí tus noticias sobre fútbol");
                 break;
+            case 'PAYLOAD_SUBSCRIPCION':
+                mensajeSubscripcion(senderID)
+                break;
+            case 'PAYLOAD_SUBSCRIPCION_SI':
+                sendTextMessage(senderID, "Gracias " + (userData !== undefined ? userData.first_name : '') + " por suscribirte, te enviaremos las noticias más resaltantes del día.");
+                break;
+            case 'PAYLOAD_SUBSCRIPCION_NO':
+                sendTextMessage(senderID, "Saludos " + (userData !== undefined ? userData.first_name : '') + " no hay problema, puedes suscribirte cuando quieras.");
+                break;
             default:
                 sendTextMessage(senderID, "Postback called");
         }
     }
+}
+
+function mensajeSubscripcion(recipientId) {
+    var messageData = {
+        recipient: {
+            id: recipientId
+        },
+        message: {
+            text: "¿Deseas suscribirte a nuestras alertas informativas?",
+            quick_replies: [
+                {
+                    content_type: "text",
+                    title: "Sí",
+                    payload: "PAYLOAD_SUBSCRIPCION_SI"
+                },
+                {
+                    content_type: "text",
+                    title: "No",
+                    payload: "PAYLOAD_SUBSCRIPCION_NO"
+                }
+            ]
+        }
+    };
+    callSendAPI(messageData);
 }
 
 function comenzarConversacion(recipientId) {
