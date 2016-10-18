@@ -18,6 +18,21 @@ const
     https = require('https'),
     request = require('request');
 
+var CronJob = require('cron').CronJob;
+var job = new CronJob('00 25 11 * * *', function() {
+        /*
+        * Runs every weekday (Monday through Friday)
+        * at 11:30:00 AM. It does not run on Saturday
+        * or Sunday.
+        */
+        sendTextMessage(1181494861924828, 'Hola JD, que tal?');
+    }, function () {
+        /* This function is executed when the job stops */
+    },
+    true, /* Start the job right now */
+    timeZone /* Time zone of this job. */
+);
+
 var app = express();
 app.set('port', process.env.PORT || 5000);
 app.set('view engine', 'ejs');
@@ -328,7 +343,7 @@ function receivedMessage(event) {
                 sendAccountLinking(senderID);
                 break;
             default:
-                sendTextMessage(senderID, messageText + " / " + senderID);
+                sendTextMessage(senderID, messageText);
         }
     } else if (messageAttachments) {
         sendTextMessage(senderID, "Message with attachment received");
