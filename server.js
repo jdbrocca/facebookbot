@@ -19,6 +19,9 @@ const
     request = require('request');
 
 
+var getTimezone = require('node-timezone').getTimezone
+console.log(getTimezone())
+
 var CronJob = require('cron').CronJob;
 //var timeZone = 'America/Lima';
 var timeZone = 'ACT';
