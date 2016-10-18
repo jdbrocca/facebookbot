@@ -38,7 +38,7 @@ var job = new CronJob('00 53 11 * * *', function() {
 
 var schedule = require('node-schedule');
  
-var j = schedule.scheduleJob('00 46 12 * * *', function(){
+var j = schedule.scheduleJob('00 49 * * * *', function() {
     sendTextMessage(1181494861924828, 'Hola JD, que tal?');
 });
 
