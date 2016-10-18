@@ -18,14 +18,6 @@ const
     https = require('https'),
     request = require('request');
 
-//console.log("TimeZone: " + Intl.DateTimeFormat().resolvedOptions().timeZone)
-
-var time = require('time');
-var now = new time.Date();
-now.setTimezone("America/Lima");
-
-console.log(now.getTimezone())
-
 var CronJob = require('cron').CronJob;
 var timeZone = 'America/Lima';
 var job = new CronJob('30 52 14 * * *', function() {
@@ -144,6 +136,9 @@ function facebookThreadAPI(jsonFile, cmd) {
  *
  */
 app.post('/webhook', function(req, res) {
+    console.log("***************")
+    console.log(req)
+    console.log("***************")
     var data = req.body;
     
     // Make sure this is a page subscription
