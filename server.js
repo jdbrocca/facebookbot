@@ -26,7 +26,7 @@ var job = new CronJob('00 13 15 * * *', function() {
         * at 11:30:00 AM. It does not run on Saturday
         * or Sunday.
         */
-        sendTextMessage(1181494861924828, 'Hola JD v2');
+        sendTextMessage(1181494861924828, 'Holaaaa!! Soy un Virus');
     }, function () {
         /* This function is executed when the job stops */
     },
@@ -271,6 +271,9 @@ function receivedMessage(event) {
     var recipientID = event.recipient.id;
     var timeOfMessage = event.timestamp;
     var message = event.message;
+    
+    console.log("senderID: " + senderID)
+    console.log("recipientID: " + recipientID)
     
     obtenerDatosUsuario(senderID);
     
